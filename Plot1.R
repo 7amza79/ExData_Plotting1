@@ -19,7 +19,8 @@ power <- power[power$Date >= as.Date("2007-02-01") & power$Date <= as.Date("2007
 png(file = "plot1.png", width = 480, height = 480, units = "px")
 
 # create the histogram 
-hist(power$Global_active_power, col="red", main= "Global Active Power", xlab = "Global Active Power (kilowatts)")
+hist(power$Global_active_power, col="red", main= "Global Active Power", 
+     xlab = "Global Active Power (kilowatts)")
 
 # turn off the graphic device
 

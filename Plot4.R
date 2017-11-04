@@ -22,9 +22,32 @@ dt <- as.POSIXct(strptime(paste(power$Date, power$Time, sep = " "),
 
 # create the png file for the plot
 
-png(file = "plot3.png", width = 480, height = 480, units = "px")
+png(file = "plot4.png", width = 480, height = 480, units = "px")
+
+
 
 # create the plot
+
+#prepare the disposition
+par(mfrow = c(2, 2))
+
+
+# create the plots
+with(power,
+     plot(dt,
+          Global_active_power,
+          type = "l",
+          xlab = "",
+          ylab = "Global Active Power"))
+
+
+with(power,
+     plot(dt,
+          Voltage,
+          type = "l",
+          xlab = "datetime",
+          ylab = "Voltage"))
+
 
 with(power,
      plot(dt,
@@ -44,6 +67,10 @@ with(power,
             Sub_metering_3,
             col = "blue")
 )
-legend("topright", col = c("black", "blue", "red"),
-       legend = c("Sub_metering_1","Sub_metering_2", "Sub_metering_3"), lty = 1)
-dev.off() # Close the png file device
+with(power,
+     plot(dt,
+          Global_reactive_power,
+          type = "l",
+          xlab = "datetime",
+          ylab = "Global_reactive_power"))
+dev.off()
